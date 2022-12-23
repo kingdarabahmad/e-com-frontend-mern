@@ -1,0 +1,144 @@
+.products{
+    padding: 30px;
+    display: flex;
+    gap: 10px;
+
+    .left{
+        flex: 1;
+        position: sticky;
+        height: 100%;
+        top: 50px;
+
+        .filterItems{
+            margin-bottom: 30px;
+
+            h2{
+                font-weight: 600;
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+
+            .inputItem{
+                margin-bottom: 10px;
+
+                label{
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .right{
+        flex: 3;
+
+        .catImg{
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+@media all and (max-width:501px){
+    .products{
+        padding: 40px 20px;
+        position: relative;
+
+        .showFilter{
+            cursor: pointer;
+            position: fixed;
+            z-index: 54;
+            left:-6px;
+            top: 50%;
+            color:teal;
+            font-size: 50px;
+            // width: 100px;
+            // height: 100px;
+        }
+    
+        .left{
+            padding: 40px;
+            position: fixed;
+            width: 70%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            transition: all 0.2s ease-out;
+            // transform: translate(-100%);
+            .removebtn{
+                color: teal;
+                font-size: 30px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                cursor:pointer;
+            }
+            .filterItems{
+                h2{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: white;
+                }
+    
+                .inputItem{
+    
+                    label{
+                        font-size: 15px;
+                        color: white;
+                        
+                    }
+                    span{
+                        color: white;
+                    }
+                }
+            }
+        }
+    
+        .right{
+    
+            .catImg{
+            }
+        }
+    }
+
+}
+
+@media all and (min-width:502px){
+    .products{
+        
+
+        .showFilter{
+            display: none;
+        }
+    
+        .left{
+            transition: all 0 !important;
+            transform: translate(0) !important;
+            .removebtn{
+            display: none;
+
+            }
+            .filterItems{
+                h2{
+                }
+    
+                .inputItem{
+    
+                    label{
+                        
+                    }
+                    span{
+                    }
+                }
+            }
+        }
+    
+        .right{
+    
+            .catImg{
+            }
+        }
+    }
+}

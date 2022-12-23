@@ -1,0 +1,74 @@
+.featuredProducts{
+    margin: 50px;
+
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        h1{
+            flex:2;
+            text-transform: capitalize;
+        }
+
+        p{
+            flex: 3;
+            color: gray;
+        }
+    }
+
+    .bottom{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media all and (max-width:501px){
+    .featuredProducts{
+        margin: 50px 20px;
+    
+        .top{
+            gap:10px;
+    
+            h1{
+                font-size: 20px;
+            }
+    
+            p{
+                font-size: 15px;
+            }
+        }
+    
+        .bottom{
+            flex-wrap: wrap;
+        }
+    }
+    
+
+}
+
+@media all and (min-width:502px){
+    .featuredProducts{
+    
+        .top{
+            gap:10px;
+    
+            h1{
+                font-size: 30px;
+            }
+    
+            p{
+                font-size: 15px;
+            }
+        }
+    
+        .bottom{
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+    }
+    
+
+}
