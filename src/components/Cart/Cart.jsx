@@ -6,7 +6,7 @@ import { removeItem, resetCart } from "../../redux/cartSlice";
 
 const Cart = ({ setOpen }) => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state?.cart);
 
   const cartSubTotal = () => {
     let total = 0;
@@ -27,12 +27,12 @@ const Cart = ({ setOpen }) => {
           <div className="details">
             <h1>{item.title}</h1>
             <div className="price">
-              {item.quantity} X ₹{item.price}
+              {item?.quantity} X ₹{item?.price}
             </div>
           </div>
           <DeleteOutlineIcon
             className="delete"
-            onClick={() => dispatch(removeItem(item.id))}
+            onClick={() => dispatch(removeItem(item?.id))}
           />
         </div>
       ))}
