@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FeaturedProducts.scss";
 import Card from "../card/Card";
-import useFetch from "../../hooks/useFetch";
 
 const FeaturedProducts = ({ type }) => {
-  const { products, isLoading, error } = useFetch(
-    `/products?populate=*&[filters][type][$eq]=${type}`
-  );
+  const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      let data = await fetch(`https://better-wear-pike.cyclic.app/products/?type=${type}`);
+      let result = await data.json();
+      setProducts(result);
+    };
+    fetchProducts();
+  }, [type]);
+
   return (
     <div className="featuredProducts">
       <div className="top">
@@ -14,11 +22,9 @@ const FeaturedProducts = ({ type }) => {
         <p>All {type} Products for Men, Women and Children</p>
       </div>
       <div className="bottom">
-        {error
-          ? "something went wrong"
-          : isLoading
-          ? "loading"
-          : products.map((item) => <Card item={item} key={item.id} />)}
+        {products.map((item) => (
+          <Card item={item} key={item._id} />
+        ))}
       </div>
     </div>
   );

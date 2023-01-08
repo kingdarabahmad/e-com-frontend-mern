@@ -23,10 +23,9 @@ const Cart = ({ setOpen }) => {
       <h1>Products in your cart</h1>
       {cart?.map((item) => (
         <div className="item" key={item.id}>
-          <img src={process.env.REACT_APP_API_UPLOAD_URL + item?.img} alt="" />
+          <img src={item?.img} alt="" />
           <div className="details">
             <h1>{item.title}</h1>
-            <p>{item?.desc?.substring(0, 100)}</p>
             <div className="price">
               {item.quantity} X ₹{item.price}
             </div>
