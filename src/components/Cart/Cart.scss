@@ -1,237 +1,191 @@
-.cart{
-    position: absolute;overflow-y: auto;
-    max-height: 250px;
-    border-radius: 10px;
-    overflow: auto;
-    overflow-x: hidden;
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cart {
+  position: absolute;
+  overflow-y: auto;
+  max-height: 250px;
+  border-radius: 10px;
+  overflow: auto;
+  overflow-x: hidden;
+  right: 20px;
+  top: 80px;
+  z-index: 999;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 5px gray;
+
+  .cartRmvBtn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: gray;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    img {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+    }
+  }
+
+  .details {
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+    }
+
+    p {
+      color: gray;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: teal;
+    }
+  }
+
+  .delete {
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    border-radius: 5px;
+    width: 230px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: teal;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .reset {
+    font-size: 15px;
+    color: red;
+    cursor: pointer;
+  }
+}
+
+@media all and (max-width: 501px) {
+  .cart {
+    right: 2%;
+    top: 100%;
+    padding: 10px;
+    width: 230px;
+
+    h1 {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .item {
+      gap: 10px;
+    }
+
+    .details {
+      h1 {
+        font-size: 15px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      .price {
+        font-size: 15px;
+      }
+    }
+
+    .total {
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// styling for width >=502px
+@media all and (min-width: 502px) {
+  .cart {
     right: 20px;
-    top: 80px;
-    z-index: 999;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 5px gray;
+    top: 130px;
+    width: 240px;
 
-    .cartRmvBtn{
-        position: absolute;
-        right: 15px;
-        top: 10px;
-        font-size: 20px;
-        color: red;
-        cursor: pointer;
-    }
-
-    h1{
-        margin-bottom: 30px;
-        color: gray;
-        font-weight: 400;
-        font-size: 20px;
-    }
-
-    .item{
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 30px;
-        img{
-            width: 80px;
-            height: 100px;
-            object-fit: cover;
-        }
-    }
-
-    .details{
-        h1{
-            font-size: 18px;
-            font-weight: 500;
-            color: black;
-        }
-
-        p{
-            color: gray;
-            margin-bottom: 10px;
-        }
-
-        .price{
-            color: teal;
-        }
-    }
-
-    .delete{
-        color: red;
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    .total{
-        display: flex;
-        justify-content: space-between;
-        font-weight: 500;
+    .details {
+      h1 {
         font-size: 15px;
-        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+//styling for width >=1079px
+
+@media all and (min-width: 1079px) {
+  .cart {
+    right: 20px;
+    top: 85px;
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
     }
 
-    button{
-        border-radius: 5px;
-        width: 230px;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        cursor: pointer;
-        border: none;
-        background-color: teal;
-        color: white;
-        font-weight: 500;
-        margin-bottom: 20px;
+    .item {
+      gap: 10px;
     }
 
-    .reset{
+    .details {
+      h1 {
+        font-size: 17px;
+      }
+      .price {
         font-size: 15px;
-        color: red;
-        cursor: pointer;
+      }
     }
-}
-
-@media all and (max-width:501px){
-    .cart{
-        right: 2%;
-        top: 100%;
-        padding: 10px;
-        width: 230px;
-    
-        h1{
-            font-size: 17px;
-            margin-bottom: 20px;
-        }
-    
-        .item{
-            gap: 10px;
-            img{
-            }
-        }
-    
-        .details{
-            h1{
-               font-size: 15px; 
-            }
-    
-            p{
-                font-size: 12px;
-
-                
-            }
-    
-            .price{
-                font-size: 15px;
-            }
-        }
-    
-        .delete{
-        }
-    
-        .total{
-            font-size: 15px;
-        }
-    
-        button{
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    
-        .reset{
-        }
+    .total {
+      font-size: 15px;
     }
-}
 
-@media all and (min-width:502px){
-    .cart{
-        right: 20px;
-        top: 130px;
-        width: 240px;
-    
-        h1{
-
-        }
-    
-        .item{
-            img{
-            }
-        }
-    
-        .details{
-            h1{
-                font-size: 15px;
-            }
-    
-            p{
-
-                
-            }
-    
-            .price{
-            }
-        }
-    
-        .delete{
-        }
-    
-        .total{
-        }
-    
-        button{
-        }
-    
-        .reset{
-        }
+    button {
+      width: 100%;
+      margin-bottom: 10px;
     }
-}
-
-@media all and (min-width:1079px){
-    
-    .cart{
-        right: 20px;
-        top: 85px;
-    
-        h1{
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-    
-        .item{
-            gap: 10px;
-            img{
-            }
-        }
-    
-        .details{
-            h1{
-               font-size: 17px; 
-            }
-    
-            p{
-
-                
-            }
-    
-            .price{
-                font-size: 15px;
-            }
-        }
-    
-        .delete{
-        }
-    
-        .total{
-            font-size: 15px;
-        }
-    
-        button{
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    
-        .reset{
-        }
-    }
+  }
 }

@@ -1,0 +1,141 @@
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.checkoutContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-direction: row;
+  .orderDetails {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+    padding: 10px;
+    h3 {
+      letter-spacing: 2px;
+      text-align: center;
+      font-size: 18px;
+    }
+    h4{
+      text-align: center;
+      font-weight: 600;
+    }
+    .top {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+
+      .rows {
+        display: flex;
+        justify-content: space-between;
+        h5 {
+          letter-spacing: 2px;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        span {
+          font-size: 14px;
+        }
+      }
+      .subtotal {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+  }
+  .checkout-form {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+
+    h4 {
+      letter-spacing: 2px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    input {
+      font-size: 15px;
+      border: 1px solid teal;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    textarea {
+      font-size: 15px;
+      border: 1px solid teal;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .btn {
+      background-color: teal;
+      color: white;
+      box-shadow: 0 0 10px teal;
+      cursor:pointer;
+    }
+  }
+}
+
+@media all and (max-width: 550px) {
+  .checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .orderDetails {
+      width: 240px;
+      h4 {
+        font-size: 17px;
+        letter-spacing: 2px;
+      }
+      .top {
+        .row {
+          h5 {
+            font-size: 10px;
+          }
+          span {
+            font-size: 10px;
+          }
+        }
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+    .checkout-form {
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 20px;
+
+      h4 {
+        font-size: 17px;
+      }
+
+      input {
+        font-size: 12px;
+        border: 1px solid teal;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      textarea {
+        font-size: 12px;
+        border: 1px solid teal;
+        padding: 5px;
+        border-radius: 10px;
+      }
+      .btn {
+        background-color: teal;
+        color: white;
+        box-shadow: 0 0 10px teal;
+      }
+    }
+  }
+}

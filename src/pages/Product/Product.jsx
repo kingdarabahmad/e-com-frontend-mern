@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Product.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { Alert } from '@mui/material';
 import BalanceIcon from "@mui/icons-material/Balance";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
+import Loader from "../../components/Loader/Loader";
 
 const Product = () => {
   const id = useParams().id;
@@ -14,12 +16,12 @@ const Product = () => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [alert,setAlert]=useState(false)
 
   useEffect(() => {
     const fetchProduct = async () => {
       setIsLoading(true);
-      let result = await fetch(`https://better-wear-pike.cyclic.app/products/${id}`);
+      let result = await fetch(`https://better-wear-pike.cyclic.app/prod/products/${id}`);
       let { data } = await result.json();
       setProduct(data);
       setIsLoading(false);
@@ -28,10 +30,24 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
+  const handleCart=(id,title,price,img,quantity)=>{
+    dispatch(addToCart({
+      id,
+      title,
+      price,
+      img,
+      quantity
+    }))
+    setAlert(true)
+    setTimeout(()=>{
+      setAlert(false)
+    },4000)
+  }
+
   return (
     <div className="product">
       {isLoading ? (
-        "loading"
+        <Loader />
       ) : (
         <>
           <div className="left">
@@ -67,20 +83,12 @@ const Product = () => {
             </div>
             <button
               className="add"
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    id: product._id,
-                    title: product.title,
-                    price: product.price,
-                    img: product.img,
-                    quantity,
-                  })
-                )
-              }
+              onClick={()=>handleCart(product._id,product.title,product.price,product.img,
+                    quantity)}
             >
-              <AddShoppingCartIcon /> ADD TO CART
+              <AddShoppingCartIcon  /> ADD TO CART
             </button>
+            {alert && <Alert severity="success" >Item successfully added to your cart</Alert>}
             <div className="link">
               <div className="item">
                 <FavoriteBorderIcon /> ADD TO WISH LIST

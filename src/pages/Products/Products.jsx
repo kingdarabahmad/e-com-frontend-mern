@@ -46,14 +46,17 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       setIsLoading(true);
-      let result = await fetch(`https://better-wear-pike.cyclic.app/subcategories`);
-      let result2 = await fetch(`https://better-wear-pike.cyclic.app/categories`);
-      let result3 = await fetch(
-        `https://better-wear-pike.cyclic.app/categories/${catId}?subcategory=${selectedSubCat}&price=${maxPriceValue}`
+      let result = await fetch(
+        `https://better-wear-pike.cyclic.app/subcat/subcategories`
       );
+      let result2 = await fetch(
+        `https://better-wear-pike.cyclic.app/cat/categories`
+      );
+      let result3 = await fetch(
+        `https://better-wear-pike.cyclic.app/cat/categories/${catId}?subcategory=${selectedSubCat}&price=${maxPriceValue}`);
 
       let subCatData = await result.json();
-      let catData = await result2.json();
+      let catData = await result2.json();   
       let { productsData } = await result3.json();
       setSubCatData(subCatData);
       setCatData(catData);
@@ -82,7 +85,9 @@ const Products = () => {
   const handleMaxPrice = () => {
     setMaxPriceValue(maxPrice);
   };
-  
+
+  //if(isLoading) return <Loader/>
+
   return (
     <div className="products">
       <div onClick={handleShow}>
@@ -117,7 +122,7 @@ const Products = () => {
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span>{maxPrice}</span>
-            <br/>
+            <br />
             <button onClick={handleMaxPrice}>Apply filter</button>
           </div>
         </div>
