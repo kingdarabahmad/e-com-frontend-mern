@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import List from "../../components/List/List";
 import "./Products.scss";
@@ -16,6 +16,7 @@ const Products = () => {
   const [catData, setCatData] = useState([]);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const rightRef = useRef(null);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -53,10 +54,11 @@ const Products = () => {
         `https://better-wear-pike.cyclic.app/cat/categories`
       );
       let result3 = await fetch(
-        `https://better-wear-pike.cyclic.app/cat/categories/${catId}?subcategory=${selectedSubCat}&price=${maxPriceValue}`);
+        `https://better-wear-pike.cyclic.app/cat/categories/${catId}?subcategory=${selectedSubCat}&price=${maxPriceValue}`
+      );
 
       let subCatData = await result.json();
-      let catData = await result2.json();   
+      let catData = await result2.json();
       let { productsData } = await result3.json();
       setSubCatData(subCatData);
       setCatData(catData);
@@ -86,7 +88,13 @@ const Products = () => {
     setMaxPriceValue(maxPrice);
   };
 
-  //if(isLoading) return <Loader/>
+  //useEffect to bring right div to view
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [rightRef]);
 
   return (
     <div className="products">
@@ -150,7 +158,7 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="right" ref={rightRef}>
         <img
           className="catImg"
           src={catData[catId - 1]?.img}

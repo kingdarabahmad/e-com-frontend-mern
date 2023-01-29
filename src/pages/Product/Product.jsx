@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Product.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { Alert } from '@mui/material';
+import { Alert } from "@mui/material";
 import BalanceIcon from "@mui/icons-material/Balance";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import Loader from "../../components/Loader/Loader";
@@ -16,12 +16,15 @@ const Product = () => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [alert,setAlert]=useState(false)
+  const [alert, setAlert] = useState(false);
+  const prodRef = useRef(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       setIsLoading(true);
-      let result = await fetch(`https://better-wear-pike.cyclic.app/prod/products/${id}`);
+      let result = await fetch(
+        `https://better-wear-pike.cyclic.app/prod/products/${id}`
+      );
       let { data } = await result.json();
       setProduct(data);
       setIsLoading(false);
@@ -30,22 +33,31 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  const handleCart=(id,title,price,img,quantity)=>{
-    dispatch(addToCart({
-      id,
-      title,
-      price,
-      img,
-      quantity
-    }))
-    setAlert(true)
-    setTimeout(()=>{
-      setAlert(false)
-    },4000)
-  }
+  const handleCart = (id, title, price, img, quantity) => {
+    dispatch(
+      addToCart({
+        id,
+        title,
+        price,
+        img,
+        quantity,
+      })
+    );
+    setAlert(true);
+    setTimeout(() => {
+      setAlert(false);
+    }, 4000);
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth",
+    });
+  }, [prodRef]);
 
   return (
-    <div className="product">
+    <div className="product" ref={prodRef}>
       {isLoading ? (
         <Loader />
       ) : (
@@ -83,15 +95,28 @@ const Product = () => {
             </div>
             <button
               className="add"
-              onClick={()=>handleCart(product._id,product.title,product.price,product.img,
-                    quantity)}
+              onClick={() =>
+                handleCart(
+                  product._id,
+                  product.title,
+                  product.price,
+                  product.img,
+                  quantity
+                )
+              }
             >
-              <AddShoppingCartIcon  /> ADD TO CART
+              <AddShoppingCartIcon /> ADD TO CART
             </button>
-            {alert && <Alert severity="success" >Item successfully added to your cart</Alert>}
+            {alert && (
+              <Alert severity="success">
+                Item successfully added to your cart
+              </Alert>
+            )}
             <div className="link">
               <div className="item">
-                <FavoriteBorderIcon /> ADD TO WISH LIST
+                <Link to="/checkoutform" className="link">
+                  <FavoriteBorderIcon /> GO TO CHECKOUT
+                </Link>
               </div>
               <div className="item">
                 <BalanceIcon /> ADD TO COMPARE

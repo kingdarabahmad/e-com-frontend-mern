@@ -87,6 +87,7 @@
     cursor: pointer;
     border: none;
     background-color: teal;
+    box-shadow: 0 0 5px black;
     color: white;
     font-weight: 500;
     margin-bottom: 20px;
@@ -101,23 +102,32 @@
 
 @media all and (max-width: 501px) {
   .cart {
-    right: 2%;
-    top: 100%;
+    top: 116px;
+    right: 40px;
     padding: 10px;
-    width: 230px;
+    width: 200px;
+
+    .cartRmvBtn {
+      font-size: 13px;
+    }
 
     h1 {
-      font-size: 17px;
+      font-size: 15px;
       margin-bottom: 20px;
     }
 
     .item {
       gap: 10px;
+
+      img {
+        width: 70px;
+        height: 90px;
+      }
     }
 
     .details {
       h1 {
-        font-size: 15px;
+        font-size: 13px;
       }
 
       p {
@@ -125,17 +135,24 @@
       }
 
       .price {
-        font-size: 15px;
+        font-size: 12px;
       }
+    }
+    .delete {
+      font-size: 20px;
     }
 
     .total {
-      font-size: 15px;
+      font-size: 12px;
     }
 
     button {
       width: 100%;
+      font-size: 12px;
       margin-bottom: 10px;
+    }
+    .reset {
+      font-size: 12px;
     }
   }
 }
@@ -143,24 +160,71 @@
 // styling for width >=502px
 @media all and (min-width: 502px) {
   .cart {
-    right: 20px;
     top: 130px;
-    width: 240px;
+    right: 140px;
+    padding: 10px;
+    width: 210px;
+
+    .cartRmvBtn {
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .item {
+      gap: 10px;
+
+      img {
+        width: 70px;
+        height: 90px;
+      }
+    }
 
     .details {
       h1 {
-        font-size: 15px;
+        font-size: 13px;
       }
+
+      p {
+        font-size: 12px;
+      }
+
+      .price {
+        font-size: 12px;
+      }
+    }
+    .delete {
+      font-size: 20px;
+    }
+
+    .total {
+      font-size: 12px;
+    }
+
+    button {
+      width: 100%;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .reset {
+      font-size: 12px;
     }
   }
 }
 
 //styling for width >=1079px
 
-@media all and (min-width: 1079px) {
+@media all and (min-width: 1000px) {
   .cart {
     right: 20px;
-    top: 85px;
+    top: 82px;
+    width: 250px;
+    .cartRmvBtn {
+      font-size: 18px;
+    }
 
     h1 {
       font-size: 20px;

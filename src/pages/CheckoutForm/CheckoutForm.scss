@@ -10,6 +10,8 @@
   align-items: center;
   gap: 30px;
   flex-direction: row;
+  background-color: #caf0f8;
+  padding: 20px;
   .orderDetails {
     display: flex;
     flex-direction: column;
@@ -21,7 +23,7 @@
       text-align: center;
       font-size: 18px;
     }
-    h4{
+    h4 {
       text-align: center;
       font-weight: 600;
     }
@@ -36,10 +38,11 @@
         h5 {
           letter-spacing: 2px;
           font-size: 15px;
-          font-weight: 500;
+          font-weight: 600;
         }
         span {
           font-size: 14px;
+          font-weight: 600;
         }
       }
       .subtotal {
@@ -49,17 +52,21 @@
     }
   }
   .checkout-form {
-    width: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 15px;
     gap: 20px;
+    background-color: #0d1b2a;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
 
     h4 {
       letter-spacing: 2px;
       text-align: center;
       font-size: 18px;
       font-weight: 600;
+      color: white;
     }
 
     input {
@@ -77,8 +84,8 @@
     .btn {
       background-color: teal;
       color: white;
-      box-shadow: 0 0 10px teal;
-      cursor:pointer;
+      cursor: pointer;
+      margin-bottom: 30px;
     }
   }
 }
@@ -89,22 +96,22 @@
     flex-direction: column;
     gap: 30px;
     .orderDetails {
-      width: 240px;
+      width: 250px;
       h4 {
         font-size: 17px;
         letter-spacing: 2px;
       }
       .top {
-        .row {
+        .rows {
           h5 {
-            font-size: 10px;
+            font-size: 12px;
           }
           span {
-            font-size: 10px;
+            font-size: 11px;
           }
         }
         span {
-          font-size: 14px;
+          font-size: 13px;
         }
       }
     }
@@ -122,7 +129,7 @@
       input {
         font-size: 12px;
         border: 1px solid teal;
-        padding: 5px;
+        padding: 10px;
         border-radius: 10px;
       }
       textarea {
@@ -134,7 +141,6 @@
       .btn {
         background-color: teal;
         color: white;
-        box-shadow: 0 0 10px teal;
       }
     }
   }

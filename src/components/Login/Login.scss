@@ -1,0 +1,50 @@
+.link{
+    text-decoration: none;
+}
+.outer-container{
+    padding: 30px;
+    display: grid;
+    place-items: center;
+    background-color: #caf0f8;
+
+    .login-box{
+        margin-bottom: 20px;
+        width: 200px;
+        height: 240px;
+        background-color: #0d1b2a ;   
+        box-shadow: 0 0 8px black;
+        border-radius: 15px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        h2{
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+        }
+        button{
+
+            height: 40px;
+            font-weight: 600;
+            border: none;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: white;
+            box-shadow: 0 0 10px black;
+            border-radius: 10px;
+            justify-content: space-evenly;
+            cursor: pointer;
+            .logo-img{
+                height: 25px;
+                font-size: 1.5rem;
+            }
+        }
+    
+    
+    }
+}

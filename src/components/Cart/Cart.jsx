@@ -1,4 +1,4 @@
-  import React from "react";
+import React from "react";
 import "./Cart.scss";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useSelector, useDispatch } from "react-redux";
@@ -41,8 +41,8 @@ const Cart = ({ setOpen }) => {
         <span>SUBTOTAL</span>
         <span>₹{cartSubTotal()}</span>
       </div>
-      <Link  to="/checkoutform" className="link"> 
-      <button>PROCEED TO CHECKOUT</button>
+      <Link to="/checkoutform" className="link">
+        <button>PROCEED TO CHECKOUT</button>
       </Link>
       <span className="reset" onClick={() => dispatch(resetCart())}>
         Reset cart
